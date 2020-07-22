@@ -68,17 +68,17 @@
   #ifdef IS_RAMPS_13
     #define SERVO0_PIN                         7
   #else
-    #define SERVO0_PIN                        11
+    #define SERVO0_PIN                        -1  //11
   #endif
 #endif
 #ifndef SERVO1_PIN
   #define SERVO1_PIN                           6
 #endif
 #ifndef SERVO2_PIN
-  #define SERVO2_PIN                           5
+  #define SERVO2_PIN                           -1 //5
 #endif
 #ifndef SERVO3_PIN
-  #define SERVO3_PIN                           4
+  #define SERVO3_PIN                           -1 //4
 #endif
 
 //
@@ -89,7 +89,7 @@
     #define X_MIN_PIN                          3
   #endif
   #ifndef X_MAX_PIN
-    #define X_MAX_PIN                          2
+    #define X_MAX_PIN                          -1 //2
   #endif
 #endif
 #ifndef Y_STOP_PIN
@@ -97,7 +97,7 @@
     #define Y_MIN_PIN                         14
   #endif
   #ifndef Y_MAX_PIN
-    #define Y_MAX_PIN                         15
+    #define Y_MAX_PIN                         -1  //15
   #endif
 #endif
 #ifndef Z_STOP_PIN
@@ -105,7 +105,7 @@
     #define Z_MIN_PIN                         18
   #endif
   #ifndef Z_MAX_PIN
-    #define Z_MAX_PIN                         19
+    #define Z_MAX_PIN                         -1  //19
   #endif
 #endif
 
@@ -149,11 +149,11 @@
   #define E0_CS_PIN                           42
 #endif
 
-#define E1_STEP_PIN                           36
-#define E1_DIR_PIN                            34
-#define E1_ENABLE_PIN                         30
+#define E1_STEP_PIN                           -1  //36
+#define E1_DIR_PIN                            -1  //34
+#define E1_ENABLE_PIN                         -1  //30
 #ifndef E1_CS_PIN
-  #define E1_CS_PIN                           44
+  #define E1_CS_PIN                           -1  //44
 #endif
 
 //
@@ -163,7 +163,7 @@
   #define TEMP_0_PIN                          13  // Analog Input
 #endif
 #ifndef TEMP_1_PIN
-  #define TEMP_1_PIN                          15  // Analog Input
+  #define TEMP_1_PIN                          -1  //15  // Analog Input
 #endif
 #ifndef TEMP_BED_PIN
   #define TEMP_BED_PIN                        14  // Analog Input
@@ -245,7 +245,8 @@
 // Misc. Functions
 //
 #define SDSS                                  53
-#define LED_PIN                               13
+#define LED_PIN                               13  //65  //13
+#define LED                                   65 
 
 #ifndef FILWIDTH_PIN
   #define FILWIDTH_PIN                         5  // Analog Input on AUX2
@@ -253,12 +254,17 @@
 
 // RAMPS 1.4 DIO 4 on the servos connector
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                       4
+  #define FIL_RUNOUT_PIN                       2  //4 //5
 #endif
 
+//#define CHECK_MATWEIAL		2
+
 #ifndef PS_ON_PIN
-  #define PS_ON_PIN                           12
+  #define PS_ON_PIN                           40  //12 (OFFPIN  OUT
 #endif
+
+#define IN_PUT				19	//15 on
+#define OUT_PUT				12	//19 off
 
 #if ENABLED(CASE_LIGHT_ENABLE) && !defined(CASE_LIGHT_PIN) && !defined(SPINDLE_LASER_ENA_PIN)
   #if NUM_SERVOS <= 1                             // Prefer the servo connector
@@ -600,7 +606,7 @@
       #define SD_DETECT_PIN                   49
 
       #ifndef KILL_PIN
-        #define KILL_PIN                      41
+        #define KILL_PIN                      19 //41 //kokoda!
       #endif
 
       #if ENABLED(MKS_MINI_12864)                 // Added in Marlin 1.1.6
@@ -619,6 +625,7 @@
 
         #define BTN_EN1                       31
         #define BTN_EN2                       33
+
 
       #elif ENABLED(FYSETC_MINI_12864)
 
@@ -653,12 +660,12 @@
 
     #elif ENABLED(MINIPANEL)
 
-      #define BEEPER_PIN                      42
+      #define BEEPER_PIN                      37  //42
       // not connected to a pin
-      #define LCD_BACKLIGHT_PIN               65  // backlight LED on A11/D65
+      #define LCD_BACKLIGHT_PIN               -1  //65  // backlight LED on A11/D65
 
-      #define DOGLCD_A0                       44
-      #define DOGLCD_CS                       66
+      #define DOGLCD_A0                       27  //44
+      #define DOGLCD_CS                       25  //66
 
       // GLCD features
       // Uncomment screen orientation
@@ -666,9 +673,9 @@
       //#define LCD_SCREEN_ROT_180
       //#define LCD_SCREEN_ROT_270
 
-      #define BTN_EN1                         40
-      #define BTN_EN2                         63
-      #define BTN_ENC                         59
+      #define BTN_EN1                         31  //40
+      #define BTN_EN2                         33  //63
+      #define BTN_ENC                         35  //59
 
       #define SD_DETECT_PIN                   49
       #define KILL_PIN                        64

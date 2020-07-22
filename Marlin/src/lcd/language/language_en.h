@@ -354,7 +354,7 @@ namespace Language_en {
   PROGMEM Language_Str MSG_PRINT_ABORTED                   = _UxGT("Print Aborted");
   PROGMEM Language_Str MSG_PRINT_DONE                      = _UxGT("Print Done");
   PROGMEM Language_Str MSG_NO_MOVE                         = _UxGT("No Move.");
-  PROGMEM Language_Str MSG_KILLED                          = _UxGT("KILLED. ");
+  PROGMEM Language_Str MSG_KILLED                          = _UxGT("KILLED & PowerOFF. ");
   PROGMEM Language_Str MSG_STOPPED                         = _UxGT("STOPPED. ");
   PROGMEM Language_Str MSG_CONTROL_RETRACT                 = _UxGT("Retract mm");
   PROGMEM Language_Str MSG_CONTROL_RETRACT_SWAP            = _UxGT("Swap Re.mm");

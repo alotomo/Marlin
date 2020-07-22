@@ -511,7 +511,7 @@ inline void manage_inactivity(const bool ignore_stepper_queue=false) {
     // key kill key press
     // -------------------------------------------------------------------------------
     static int killCount = 0;   // make the inactivity button a bit less responsive
-    const int KILL_DELAY = 750;
+    const int KILL_DELAY = 10000; //;750;
     if (!READ(KILL_PIN))
       killCount++;
     else if (killCount > 0)
@@ -522,6 +522,7 @@ inline void manage_inactivity(const bool ignore_stepper_queue=false) {
     // ----------------------------------------------------------------
     if (killCount >= KILL_DELAY) {
       SERIAL_ERROR_MSG(STR_KILL_BUTTON);
+      digitalWrite(OUT_PUT,HIGH);
       kill();
     }
   #endif
@@ -837,6 +838,17 @@ void stop() {
  *    • Max7219
  */
 void setup() {
+
+  pinMode(IN_PUT,INPUT);
+  pinMode(OUT_PUT,OUTPUT);
+  WRITE(IN_PUT,HIGH); //ON
+  WRITE(OUT_PUT,LOW); //OFF
+
+  // attachInterrupt(zhongduan,statechange,FALLING);
+ 
+  //pinMode(LED,OUTPUT);
+  //digitalWrite(LED,HIGH);
+
 
   HAL_init();
 

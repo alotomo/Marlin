@@ -103,6 +103,9 @@ void GcodeSuite::M81() {
 
   safe_delay(1000); // Wait 1 second before switching off
 
+  WRITE(OUT_PUT,HIGH);  // translation: Turn off the power
+  delay(1000);
+
   #if HAS_SUICIDE
     suicide();
   #elif ENABLED(PSU_CONTROL)
